@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Module 4</title>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+        <script type="text/javascript" src="script.js"></script>
+	<link rel="stylesheet" href="./src/simple-date-picker.css" />
+
+</head>
+    </head>
+    <body>
+        
+        <form method="post" target="#" onsubmit="return validate()">
+        <h1>Module 4 Form</h1>
+        <p>This form was created usin JavaScript to implement data validation logic. Please fill out all fields to proceed.</p>
+        
+      	Username<br>
+      	<input type="text" name="Username"><br>
+	First Name<br>
+      	<input type="text" name="FirstName"><br>
+	Last Name<br>
+      	<input type="text" name="LastName"><br>
+
+Date of Birth<br>
+<!-- assume you have an input with the "date" id -->
+<input type="text" id="date"/>
+
+<script type="text/javascript" src="./src/simple-date-picker.js"></script>
+<script type="text/javascript">
+  var $date = document.querySelector('#date');
+  // initial datepicker with the input Node
+  datepicker.init($date);
+</script>
+<br>
+
+       Email<br>
+	<input type="text" name="email"><br>
+        Retype email<br>
+      	<input type="text" name="retype_email"><br>
+        Create a password<br>
+	<input type="password" name="password"><br>
+        Retype password<br>
+	<input type="password" name="retype_password"><br>
+        
+        <label>
+          <input type="checkbox" name="terms">By signing up to {this} you agree to your
+           <a href="#service">Terms of Service</a> and <a href="#policy">Privacy Policy</a>
+        </label>
+            
+      	<div class="button">
+          <input type="submit" class="button" value="Set Up Account">
+	<input type="reset" name="reset" value="Reset"/>
+        </div>
+        
+	</form>
+
+
+  
+
+</body>
+</html>
