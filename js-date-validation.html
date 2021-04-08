@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Date Validation Example</title>
+</head>
+<body>
+
+<!-- HTML SECTION  -->
+<form method="POST" onsubmit="return checkDate(this);">
+  <span>Please enter a date below:</span><span class="vija">|</span><br/>
+  <input type="text" name="date" placeholder="dd/mm/yyyy">
+  <br/><input type="submit" value="Validate">
+</form>
+
+<!-- JAVASCRIPT SECTION  -->
+<script type="text/javascript">
+//new function to handle validation
+ // function checkDate(form)
+ //  {
+ //    // regular expression to match required date format
+ //    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+ //    // ^ means begin, \d means expect a digit within {n1, n2}, $ means end with.
+ //    if(form.date.value != '') { // check to see the input is not left empty
+ //      if(regs = form.date.value.match(re)) {  // check and save the general format matching
+ //        // day value between 1 and 31
+ //        if(regs[1] < 1 || regs[1] > 31) { // regs[1] means the first value given
+ //          alert("Invalid value for day: " + regs[1]); // alert user to check day again
+ //          form.date.focus();  // give focus to the input field
+ //          return false;
+ //        }
+ //        // month value between 1 and 12
+ //        if(regs[2] < 1 || regs[2] > 12) {
+ //          alert("Invalid value for month: " + regs[2]);
+ //          form.date.focus();
+ //          return false;
+ //        }
+ //        // year value between 1 and 2016
+ //        if(regs[3] < 0 || regs[3] > new Date().getFullYear()) {
+ //          alert("Invalid value for year: " + regs[3] + " - must be between 1 and " + (new Date()).getFullYear());
+ //          form.date.focus();
+ //          return false;
+ //        }
+ //      } else if(isNaN(form.date.value)) {
+ //        alert("You entered a string.");
+ //        form.date.focus();
+ //        return false;
+ //      }
+ //    }
+ //    else {
+ //        alert("No input was given!");
+ //        form.date.focus();
+ //        return false;
+ //      }
+ //  }
+</script>
+
+<script type="text/javascript">
+// function checkDate(form){
+//   // control the number range inside the regular pattern
+// var datePattern = /^[0-3]?[0-9]\/[0-1]?[0-9]\/[0-2][0-9][0-9][0-9]$/;
+//   if(form.date.value.match(datePattern)) {
+//     alert("Correct Date");
+//   }
+//   else
+//     alert("Invalid Date");
+// }
+</script>
+
+<script type="text/javascript">
+// function checkDate(form){
+//   // control the number range inside the regular pattern
+// var datePattern = /^[0-1]?[0-9]\/[0-3]?[0-9]\/[0-2][0-9][0-9][0-9]$/;
+//   if(form.date.value.match(datePattern)) {
+//     alert("Correct Date");
+//   }
+//   else
+//     alert("Invalid Date");
+// }
+</script>
+
+<script type="text/javascript">
+// function checkDate(form){
+//   // control the number range inside the regular pattern
+// var datePattern = /^[0-3]?[0-9]\.[0-1]?[0-9]\.[0-2][0-9][0-9][0-9]$/;
+//   if(form.date.value.match(datePattern)) {
+//     alert("Correct Date");
+//   }
+//   else
+//     alert("Invalid Date");
+// }
+</script>
+
+<script type="text/javascript">
+function daysInMonth(month,year) {
+    return new Date(year, month, 0).getDate();
+}
+
+//new function to handle validation
+ function checkDate(form)
+  {
+    // regular expression to match required date format
+    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+    // ^ means begin, \d means expect a digit within {n1, n2}, $ means end with.
+    if(form.date.value != '') { // check to see the input is not left empty
+      if(regs = form.date.value.match(re)) {  // check and save the general format matching
+        // day value between 1 and 31
+        if(regs[1] < 1 || regs[1] > 31 || regs[1] > daysInMonth(regs[2], regs[3])) { // check for month days
+          alert("Invalid value for day: " + regs[1]); // alert user to check day again
+          form.date.focus();  // give focus to the input field
+          return false;
+        }
+        // month value between 1 and 12
+        if(regs[2] < 1 || regs[2] > 12) {
+          alert("Invalid value for month: " + regs[2]);
+          form.date.focus();
+          return false;
+        }
+        // year value between 1 and 2016
+        if(regs[3] < 0 || regs[3] > new Date().getFullYear()) {
+          alert("Invalid value for year: " + regs[3] + " - must be between 1 and " + (new Date()).getFullYear());
+          form.date.focus();
+          return false;
+        }
+      } else if(isNaN(form.date.value)) { // check if input is not a number
+        alert("You entered a string.");
+        form.date.focus();
+        return false;
+      }
+    }
+    else {
+        alert("No input was given!");
+        form.date.focus();
+        return false;
+      }
+  }
+</script>
+
+<style type="text/css">
+    body {
+        font-family: "Arial Nova", "Arial", "sans-serif";
+        margin: 10em 12em;
+    }
+    input {
+        font-family: "Arial Nova", "Arial", "sans-serif";
+        height: 2em;
+        outline: none;
+        padding: 0 .5em;
+        margin: .5em 0;
+    }
+    input[type="text"]{
+      border: 1px solid #808080;
+    }
+    .vija {
+      margin-left: 34em;
+    }
+</style>
+
+</body>
+</html>
+
+
